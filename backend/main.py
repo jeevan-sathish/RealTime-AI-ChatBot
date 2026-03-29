@@ -18,4 +18,10 @@ def greet():
         "message":"hello form FastAPi"
     }
 
+@app.get('/demo')
+def demo():
+    return {
+        "me"
+    }
+
 app.include_router(calculate.router,prefix="/api")
