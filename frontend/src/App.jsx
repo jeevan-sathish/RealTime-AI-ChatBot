@@ -1,29 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const App = () => {
   const [message, setMessage] = useState("");
-  const data = "30+10";
+  const [socket, setSocket] = useState(null);
 
-  async function handleResponse() {
-    try {
-      const res = await fetch("http://127.0.0.1:8000/api/calculate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ data: data }),
-      });
-      const result = await res.json();
-      setMessage(result.message);
-    } catch (err) {
-      console.log(err);
-    }
-  }
+  useEffect(() => {
+    const ws = new WebSocket("ws://localhost:8000/ws");
+    ws.open = () => {
+      console.log("connected to server");
+    };
+
+    ws.onmessage = (event) => {
+      console.log("server says", event.data);
+    };
+
+    setSocket(ws);
+
+    return () => ws.close();
+  }, []);
+
+  const sendMessage = () => {
+    socket.send(message);
+  };
   return (
     <div>
-      <h1>this is where the clculation ui goes well </h1>
-      <button onClick={handleResponse}>calculate</button>
-      <h1>result:{message}</h1>
+      <input
+        type="text"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+      />
+      <button onClick={sendMessage}></button>
     </div>
   );
 };
