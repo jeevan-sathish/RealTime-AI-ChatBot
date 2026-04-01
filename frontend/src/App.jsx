@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 const App = () => {
   const [message, setMessage] = useState("");
   const [socket, setSocket] = useState(null);
+  const [res, setres] = useState("");
 
   useEffect(() => {
     const ws = new WebSocket("ws://localhost:8000/ws");
