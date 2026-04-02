@@ -10,7 +10,7 @@ Features
 🎯 Minimal and responsive design
 
 ![Screenshot](./frontend/src/assets/img1.png)
-![Screenshot](./frontend/src/assets/img 2.png)
+![Screenshot](./frontend/src/assets/img2.png)
 
 Tech Stack
 
