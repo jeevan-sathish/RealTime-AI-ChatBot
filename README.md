@@ -14,7 +14,7 @@ A simple real-time chat application built using WebSockets. It allows users to s
 
 ⚡ Real-time messaging using WebSockets  
 💬 Chat-style UI (user & bot messages)  
-⏳ Typing indicator while waiting for response  
+⏳ Streaming UI for better user experience
 🔽 Auto-scroll to latest message  
 🎯 Minimal and responsive design
 
