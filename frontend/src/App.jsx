@@ -66,9 +66,8 @@ const App = () => {
       }}
     >
       <h3 style={{ textAlign: "center", color: "#555" }}>{status}</h3>
-      <h1 style={{ textAlign: "center" }}>⚡ Real-Time AI Chat</h1>
+      <h1 style={{ textAlign: "center" }}> Real-Time AI Chat</h1>
 
-      {/* CHAT BOX */}
       <div
         style={{
           height: "400px",
