@@ -57,6 +57,7 @@ const App = () => {
       }}
     >
       <h3 style={{ textAlign: "center", color: "#555" }}>{status}</h3>
+      <h1>Read-Time AI chat-BOT</h1>
 
       <div
         style={{
