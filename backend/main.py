@@ -15,10 +15,17 @@ async def websocket_endpoint(websocket:WebSocket):
             prompt=f"ENSURE THE INFORMATION DOENT EXCEED MARE THAN 2 LINES {data}"
             response = ollama.chat(
                 model="llama3",
-                messages=[{"role":"user","content":prompt}]
+                messages=[{"role":"user","content":prompt}],
+                stream=True
             )
-            ollama_response= response["message"]["content"]
 
-            await websocket.send_text(ollama_response)
+            for chunk in response:
+                content = chunk["message"]["content"]
+
+                await websocket.send_text(content)
+            
+
+
+            
     except Exception as e:
         print("error:",e)
